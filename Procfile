@@ -1,1 +1,1 @@
-web: gunicorn blog.wsgi --bind 0.0.0.0:$PORT
+web: python manage.py collectstatic && gunicorn blog.wsgi --bind 0.0.0.0:$PORT
