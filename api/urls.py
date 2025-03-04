@@ -1,10 +1,16 @@
+from django.urls import path
 from rest_framework import routers
+from django.conf.urls import include
 
-from api.views import TaskViewSet
+from api.views import MovieViewSet, RatingViewSet, UserViewSet
 
 router = routers.DefaultRouter()
-router.register(r'tasks', TaskViewSet, basename='task')
+router.register('movies',MovieViewSet)
+router.register('ratings', RatingViewSet)
+router.register('users', UserViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('', include(router.urls))
+]
 
 
